@@ -4,10 +4,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-     with:
-      python-version: '3.11.0-alpha.1'
+      - name: Clone repository
+        uses: actions/checkout@v2
+        
+      - name: python
+        run: |      
+          sudo apt-get update         
+          sudo apt-get install python3 -y  
      
       - name: git push
         run: |       
