@@ -4,13 +4,13 @@ import re
 
 def rename_files():
 
- file_list = os.listdir(r"./image_01/")
+ file_list = os.listdir(r"./image_02/")
 
  saved_path = os.getcwd()
 
  print("current working directory is"+ saved_path)
 
- os.chdir(r"./image_01/")
+ os.chdir(r"./image_02/")
 
  for file_name in file_list:
 
