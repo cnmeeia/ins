@@ -1,0 +1,28 @@
+name: del
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+     with:
+      python-version: '3.11.0-alpha.1'
+     
+      - name: git push
+        run: |       
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}          
+          git pull --rebase   
+          
+      - name: del
+        run: |       
+           python3 del.py
+           
+      - name: git push
+        run: |        
+          git config --global user.email github@app2022.ml        
+          git config --global user.name cnmeeia        
+          git pull         
+          git add .         
+          git commit -m "push"
+          git push 
